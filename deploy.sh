@@ -24,15 +24,15 @@ curVersion="${dateHashed}-${shortHash}"
 composer install
 
 # Create the build dir
-mkdir -p ~/bin/"${domain}"/builds/"${buildDir}"
+mkdir -p ~/"${domain}"/bin/builds/"${buildDir}"
 
 # Copy app files
-cp -r ./vendor ~/bin/"${domain}"/builds/"${buildDir}"
-cp -r ./www ~/bin/"${domain}"/builds/"${buildDir}"
-cp -r ./config.php ~/bin/"${domain}"/builds/"${buildDir}"
+cp -r ./vendor ~/"${domain}"/bin/builds/"${buildDir}"
+cp -r ./www ~/"${domain}"/bin/builds/"${buildDir}"
+cp -r ./config.php ~/"${domain}"/bin/builds/"${buildDir}"
 
 # Remove existing symlink/web directory
-rm ~/web
+rm -rf ~/"${domain}"/web
 
 # Create new symlink
-ln -sf ~/bin/"${domain}"/builds/"${buildDir}"/www ~/web
+ln -sf ~/"${domain}"/bin/builds/"${buildDir}"/www ~/"${domain}"/web
