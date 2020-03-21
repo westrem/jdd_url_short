@@ -24,9 +24,9 @@ try {
     'link_id' => $query,
   ];
 
-  if (!empty($_REQUEST['HTTP_USER_AGENT'])) { $insert['ua'] = $_REQUEST['HTTP_USER_AGENT']; }
-  if (!empty($_REQUEST['HTTP_REFERER'])) { $insert['ref'] = $_REQUEST['HTTP_REFERER']; }
-  if (!empty($_REQUEST['REMOTE_ADDR'])) { $insert['if'] = $db::literal("INET_ATON('" . $_REQUEST['REMOTE_ADDR'] ."')"); }
+  if (!empty($_SERVER['HTTP_USER_AGENT'])) { $insert['ua'] = $_SERVER['HTTP_USER_AGENT']; }
+  if (!empty($_SERVER['HTTP_REFERER'])) { $insert['ref'] = $_SERVER['HTTP_REFERER']; }
+  if (!empty($_SERVER['REMOTE_ADDR'])) { $insert['if'] = $db::literal("INET_ATON('" . $_SERVER['REMOTE_ADDR'] ."')"); }
 
   $db->query('INSERT INTO stats', $insert);
 
