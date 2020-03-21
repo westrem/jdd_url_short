@@ -26,7 +26,7 @@ try {
 
   if (!empty($_SERVER['HTTP_USER_AGENT'])) { $insert['ua'] = $_SERVER['HTTP_USER_AGENT']; }
   if (!empty($_SERVER['HTTP_REFERER'])) { $insert['ref'] = $_SERVER['HTTP_REFERER']; }
-  if (!empty($_SERVER['REMOTE_ADDR'])) { $insert['if'] = $db::literal("INET_ATON('" . $_SERVER['REMOTE_ADDR'] ."')"); }
+  if (!empty($_SERVER['REMOTE_ADDR'])) { $insert['ip'] = $db::literal("INET_ATON('" . $_SERVER['REMOTE_ADDR'] ."')"); }
 
   $db->query('INSERT INTO stats', $insert);
 
