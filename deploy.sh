@@ -34,5 +34,7 @@ cp -r ./config.php ~/"${domain}"/bin/builds/"${buildDir}"
 # Remove existing symlink/web directory
 rm -rf ~/"${domain}"/web
 
+cd ~/"${domain}"
+
 # Create new symlink
-ln -sf ~/"${domain}"/bin/builds/"${buildDir}"/www ~/"${domain}"/web
+ln -sf ./bin/builds/"${buildDir}"/www web
